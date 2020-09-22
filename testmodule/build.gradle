@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api 'org.jetbrains:annotations:20.1.0'
+   // implementation 'org.jetbrains:annotations:20.1.0'
+   // implementation project(':main')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task runApp(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    group = 'mytasks'
+    main = 'test.module.Main'
+
+    args = ['Hello', 'World']
+}
